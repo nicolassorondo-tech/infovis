@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo Práctico - Datos Personales</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #0056b3;
+            margin: 0;
+        }
+        .personal-data {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+        .personal-data p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .personal-data strong {
+            color: #2c3e50;
+        }
+        .viz-container {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #fafafa;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Encabezado -->
+        <header>
+            <h1>Trabajo Práctico: Análisis de Datos Personales</h1>
+        </header>
+
+        <!-- Sección de Datos Personales -->
+        <section class="personal-data">
+            <h2>Datos del Alumno</h2>
+            <p><strong>Nombre y Apellido:</strong> NICOLÁS SORONDO </p>
+            <p><strong>Materia:</strong> VISUALIZACIÓN DE DATOS </p>
+        </section>
+
+        <!-- Sección del Gráfico de Tableau -->
+        <section>
+            <h2>Distribución por Categoría</h2>
+            <p>A continuación se presenta el gráfico interactivo realizado en Tableau:</p>
+            
+            <div class="viz-container">
+                <!-- CÓDIGO DE TABLEAU PROPORCIONADO -->
+                <div class='tableauPlaceholder' id='viz1787789078290' style='position: relative'>
+                    <noscript>
+                        <a href='#'>
+                            <img alt='Distribución por categoría ' src='https://public.tableau.com/static/images/Li/Libro1_17877878563150/Hoja2/1_rss.png' style='border: none' />
+                        </a>
+                    </noscript>
+                    <object class='tableauViz' style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                        <param name='embed_code_version' value='3' /> 
+                        <param name='site_root' value='' />
+                        <param name='name' value='Libro1_17877878563150/Hoja2' />
+                        <param name='tabs' value='no' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image' value='https://public.tableau.com/static/images/Li/Libro1_17877878563150/Hoja2/1.png' /> 
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-US' />
+                        <param name='filter' value='publish=yes' />
+                    </object>
+                </div>                
+                <script type='text/javascript'>                    
+                    var divElement = document.getElementById('viz1787789078290');                    
+                    var vizElement = divElement.getElementsByTagName('object')[0];                    
+                    vizElement.style.width='100%';
+                    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
+                    var scriptElement = document.createElement('script');                    
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                </script>
+                <!-- FIN DEL CÓDIGO DE TABLEAU -->
+            </div>
+        </section>
+
+        <!-- Pie de página -->
+        <footer>
+            <p>Trabajo Práctico entregado mediante HTML y Tableau Public.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
