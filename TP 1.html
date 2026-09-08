@@ -169,23 +169,24 @@
 
     <div class="container">
 
-        <!-- SECCIÓN 1: FLUJO DE PAGOS Y TIPOS DE BIENES (RAWGraphs) -->
+<!-- SECCIÓN 1: FLUJO DE PAGOS Y TIPOS DE BIENES (RAWGraphs) -->
         <section class="card">
             <h2>1. Flujo de Transacciones y Medios de Pago</h2>
-            <p class="description">Diagrama Alluvial generado en RAWGraphs que mapea el canal de origen de los fondos en relación directa con la tipología de los bienes adquiridos (Recurrentes, Accesorios, Equipamiento e Infraestructura).</p>
+            <p class="description">Diagrama Alluvial generado en RAWGraphs que mapea el canal de origen de los fondos (Dinero en Cuenta y Tarjeta de Crédito) en relación directa con las categorías de consumo detectadas (Consumibles, Autos y Gatos).</p>
             <div class="visualization-container" style="flex-direction: column; align-items: center; padding: 2rem;">
                 <div style="width: 100%; max-width: 900px; background: #fff; padding: 1rem; border-radius: 6px; text-align: center; border: 1px solid #eaeaea;">
                     <img src="Alluvial.svg" alt="Diagrama Alluvial Rawgraphs" style="max-width: 100%; height: auto; border-radius: 4px;">
                 </div>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: #555; text-align: center;"><b>Hallazgo principal:</b> Predominio absoluto de la liquidez inmediata para consumos recurrentes frente al uso estratégico de tarjetas para infraestructura.</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #555; text-align: center;"><b>Hallazgo principal:</b> Se observa cómo los consumibles y las categorías específicas de gasto se distribuyen dinámicamente entre el uso de liquidez inmediata y financiamiento con tarjeta.</p>
             </div>
         </section>
 
-        <!-- SECCIÓN 2: TREEMAP DE CATEGORÍAS (Tableau) -->
+   <!-- SECCIÓN 2: TREEMAP DE CATEGORÍAS (Tableau) -->
         <section class="card">
             <h2>2. Anatomía de la Billetera: Volumen vs. Valor</h2>
-            <p class="description">Treemap jerárquico desarrollado en Tableau. El tamaño representa el impacto financiero total, mientras que la escala cromática semáforo expone el volumen de transacciones por categoría.</p>
+            <p class="description">Treemap jerárquico desarrollado en Tableau. El tamaño de cada bloque representa la cantidad de transacciones (frecuencia), mientras que la escala cromática semáforo expone el monto total gastado por categoría.</p>
             <div class="visualization-container">
+                <!-- EMBED DE TABLEAU -->
                 <div class='tableauPlaceholder' id='viz1788833936240' style='position: relative; width: 100%; max-width: 100%;'>
                     <noscript><a href='#'><img alt='Dashboard 1 ' src='https://public.tableau.com/static/images/Da/DatosMELI/Dashboard1/1_rss.png' style='border: none' /></a></noscript>
                     <object class='tableauViz' style='display:none;'>
@@ -215,7 +216,7 @@
                     vizElement.parentNode.insertBefore(scriptElement, vizElement);
                 </script>
             </div>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: #555;"><b>Lectura analítica:</b> Categorías como <i>Autos</i> operan como un claro desvío de valor (menor cantidad de transacciones, alto impacto presupuestario), contrastando con los rubros de alta recurrencia en el hogar.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #555;"><b>Lectura analítica:</b> Permite contrastar la frecuencia operativa de las compras frente al peso monetario real que consume cada categoría en la billetera.</p>
         </section>
 
         <!-- SECCIÓN 3 Y 4: DATAWRAPPER & FLOURISH EN DOS COLUMNAS -->
@@ -232,14 +233,14 @@
                 <p style="margin-top: 1rem; font-size: 0.9rem; color: #555;"><b>Conclusión temporal:</b> La estacionalidad se quiebra netamente en mayo debido a la adquisición de equipamiento tecnológico multimedia.</p>
             </section>
 
-            <!-- SECCIÓN 4: FLOURISH (Scatter Plot Financiero) -->
+       <!-- SECCIÓN 4: FLOURISH (Scatter Plot Financiero) -->
             <section class="card" style="border-top-color: #ff9900;">
                 <h2>4. Estrategia de Financiación</h2>
-                <p class="description">Diagrama de dispersión interactivo en Flourish que cruza el monto total de la operación frente a las cuotas pactadas, utilizando escalas lineales optimizadas.</p>
+                <p class="description">Diagrama de dispersión interactivo en Flourish que cruza el monto total de la operación frente a las cuotas pactadas, utilizando escalas lineales optimizadas para aislar valores operativos.</p>
                 <div class="visualization-container">
                     <div class="flourish-embed flourish-scatter" data-src="visualisation/30183121" style="width:100%;"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/30183121/thumbnail" width="100%" alt="scatter visualization" /></noscript></div>
                 </div>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: #555;"><b>Patrón crediticio:</b> Se evidencia una clara separación operativa: el dinero en cuenta se restringe al 100% de operaciones en 1 pago, reservando el financiamiento en cuotas exclusivamente para tickets elevados.</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #555;"><b>Patrón crediticio y hallazgo financiero:</b> El scatter plot expone una polarización clara en la toma de decisiones de pago. Por un lado, el 100% de las transacciones abonadas con dinero en cuenta se concentran estrictamente en un pago único para tickets de bajo y mediano valor. Por el contrario, el apalancamiento en cuotas (3 y 6 pagos con tarjeta de crédito) se reserva quirúrgicamente para absorber el impacto de adquisiciones de alta gama, evidenciando una gestión racional de la liquidez frente a la inflación y el costo financiero.</p>
             </section>
 
         </div>
