@@ -50,7 +50,6 @@
             gap: 0.75rem;
         }
 
-        /* Simulación geométrica limpia del ícono de la mano de Mercado Libre en CSS puro */
         .meli-logo-icon {
             width: 50px;
             height: 50px;
@@ -60,11 +59,6 @@
             align-items: center;
             justify-content: center;
             position: relative;
-        }
-
-        .meli-logo-icon::after {
-            content: "handshake";
-            display: none;
         }
         
         .meli-hand-icon {
@@ -147,7 +141,7 @@
             color: var(--meli-white);
             text-align: center;
             padding: 2rem;
-            margin-top: 4link;
+            margin-top: 4rem;
             font-size: 0.9rem;
         }
 
@@ -162,7 +156,6 @@
         <div class="header-content">
             <div class="logo-container">
                 <div class="meli-logo-icon">
-                    <!-- Icono SVG oficial simplificado de apretón de manos / identidad Meli -->
                     <svg class="meli-hand-icon" viewBox="0 0 24 24">
                         <path d="M21.5 10.5C21.5 9.12 20.38 8 19 8H16V6C16 4.9 15.1 4 14 4H10C8.9 4 8 4.9 8 6V8H5C3.62 8 2.5 9.12 2.5 10.5V12C2.5 13.1 3.22 14.03 4.22 14.35L6 19.5C6.28 20.34 7.07 21 8 21H16C16.93 21 17.72 20.34 18 19.5L19.78 14.35C20.78 14.03 21.5 13.1 21.5 12V10.5M14 6V8H10V6H14M16 19H8L6.5 14H17.5L16 19M19.5 12H4.5V10.5C4.5 10.22 4.72 10 5 10H19C19.28 10 19.5 10.22 19.5 10.5V12Z"/>
                     </svg>
@@ -176,7 +169,7 @@
 
     <div class="container">
 
-<!-- SECCIÓN 1: FLUJO DE PAGOS Y TIPOS DE BIENES (RAWGraphs) -->
+        <!-- SECCIÓN 1: FLUJO DE PAGOS Y TIPOS DE BIENES (RAWGraphs) -->
         <section class="card">
             <h2>1. Flujo de Transacciones y Medios de Pago</h2>
             <p class="description">Diagrama Alluvial generado en RAWGraphs que mapea el canal de origen de los fondos en relación directa con la tipología de los bienes adquiridos (Recurrentes, Accesorios, Equipamiento e Infraestructura).</p>
@@ -193,7 +186,6 @@
             <h2>2. Anatomía de la Billetera: Volumen vs. Valor</h2>
             <p class="description">Treemap jerárquico desarrollado en Tableau. El tamaño representa el impacto financiero total, mientras que la escala cromática semáforo expone el volumen de transacciones por categoría.</p>
             <div class="visualization-container">
-                <!-- EMBED DE TABLEAU (O la imagen del Treemap validada) -->
                 <div class='tableauPlaceholder' id='viz1788833936240' style='position: relative; width: 100%; max-width: 100%;'>
                     <noscript><a href='#'><img alt='Dashboard 1 ' src='https://public.tableau.com/static/images/Da/DatosMELI/Dashboard1/1_rss.png' style='border: none' /></a></noscript>
                     <object class='tableauViz' style='display:none;'>
