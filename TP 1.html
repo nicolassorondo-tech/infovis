@@ -3,124 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabajo Práctico - Datos Personales</title>
+    <title>Análisis de Consumo Personal | Mercado Libre</title>
     <style>
+        :root {
+            --meli-yellow: #ffe600;
+            --meli-blue: #2d327d;
+            --meli-dark: #333333;
+            --meli-light: #f5f5f5;
+            --meli-white: #ffffff;
+            --meli-gray: #666666;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            margin: 0;
-            padding: 40px 20px;
+            background-color: var(--meli-light);
+            color: var(--meli-dark);
+            line-height: 1.6;
         }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+
         header {
+            background-color: var(--meli-yellow);
+            padding: 2rem 1rem;
             text-align: center;
-            border-bottom: 2px solid #0056b3;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            border-bottom: 4px solid var(--meli-blue);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Simulación geométrica limpia del ícono de la mano de Mercado Libre en CSS puro */
+        .meli-logo-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--meli-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .meli-logo-icon::after {
+            content: "handshake";
+            display: none;
+        }
+        
+        .meli-hand-icon {
+            width: 28px;
+            height: 28px;
+            fill: var(--meli-yellow);
+        }
+
         h1 {
-            color: #0056b3;
-            margin: 0;
+            color: var(--meli-blue);
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
-        .personal-data {
-            background-color: #e9ecef;
-            padding: 20px;
-            border-radius: 6px;
-            margin-bottom: 30px;
+
+        .subtitle {
+            color: var(--meli-dark);
+            font-size: 1.1rem;
+            font-weight: 500;
+            max-width: 700px;
         }
-        .personal-data p {
-            margin: 5px 0;
-            font-size: 16px;
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
         }
-        .personal-data strong {
-            color: #2c3e50;
+
+        .card {
+            background: var(--meli-white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--meli-blue);
         }
-        .viz-container {
-            margin-top: 20px;
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 4px;
-            background-color: #fafafa;
+
+        .card h2 {
+            color: var(--meli-blue);
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
+
+        .card p.description {
+            color: var(--meli-gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .visualization-container {
+            width: 100%;
+            overflow-x: auto;
+            display: flex;
+            justify-content: center;
+            background: #fafafa;
+            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid #eaeaea;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
         footer {
+            background-color: var(--meli-blue);
+            color: var(--meli-white);
             text-align: center;
-            margin-top: 40px;
-            font-size: 14px;
-            color: #777;
+            padding: 2rem;
+            margin-top: 4link;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Encabezado -->
-        <header>
-            <h1>Trabajo Práctico: Análisis de Datos Personales</h1>
-        </header>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="meli-logo-icon">
+                    <!-- Icono SVG oficial simplificado de apretón de manos / identidad Meli -->
+                    <svg class="meli-hand-icon" viewBox="0 0 24 24">
+                        <path d="M21.5 10.5C21.5 9.12 20.38 8 19 8H16V6C16 4.9 15.1 4 14 4H10C8.9 4 8 4.9 8 6V8H5C3.62 8 2.5 9.12 2.5 10.5V12C2.5 13.1 3.22 14.03 4.22 14.35L6 19.5C6.28 20.34 7.07 21 8 21H16C16.93 21 17.72 20.34 18 19.5L19.78 14.35C20.78 14.03 21.5 13.1 21.5 12V10.5M14 6V8H10V6H14M16 19H8L6.5 14H17.5L16 19M19.5 12H4.5V10.5C4.5 10.22 4.72 10 5 10H19C19.28 10 19.5 10.22 19.5 10.5V12Z"/>
+                    </svg>
+                </div>
+                <span style="font-size: 1.5rem; font-weight: 800; color: var(--meli-blue);">mercado libre</span>
+            </div>
+            <h1>Análisis de Consumo Personal</h1>
+            <p class="subtitle">Trabajo Práctico Integrador: Modelado Dimensional, Estructura del Gasto y Patrones E-commerce (2025-2026)</p>
+        </div>
+    </header>
 
-        <!-- Sección de Datos Personales -->
-        <section class="personal-data">
-            <h2>Datos del Alumno</h2>
-            <p><strong>Nombre y Apellido:</strong> NICOLÁS SORONDO </p>
-            <p><strong>Materia:</strong> VISUALIZACIÓN DE DATOS </p>
+    <div class="container">
+
+        <!-- SECCIÓN 1: FLUJO DE PAGOS Y TIPOS DE BIENES (RAWGraphs) -->
+        <section class="card">
+            <h2>1. Flujo de Transacciones y Medios de Pago</h2>
+            <p class="description">Diagrama Alluvial generado en RAWGraphs que mapea el canal de origen de los fondos en relación directa con la tipología de los bienes adquiridos (Recurrentes, Accesorios, Equipamiento e Infraestructura).</p>
+            <div class="visualization-container" style="flex-direction: column; align-items: center; padding: 2rem;">
+                <!-- ESPACIO RESERVADO PARA EL GRAFICO DE RAWGRAPHS (IMAGEN O EMBED) -->
+                <div style="width: 100%; max-width: 900px; background: #fff; padding: 1rem; border-radius: 6px; text-align: center; border: 1px dashed #ccc;">
+                    <p style="color: #666; font-style: italic; margin-bottom: 1rem;">[Insertar aquí la imagen exportada de RAWGraphs o gráfico vectorial]</p>
+                    <!-- Reemplazar o insertar la etiqueta de imagen del gráfico RAWGraphs provisto -->
+                    <img src="path_to_rawgraphs_image.png" alt="Diagrama Alluvial Rawgraphs" style="max-width: 100%; height: auto; border-radius: 4px;" onerror="this.style.display='none'">
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #555; text-align: center;"><b>Hallazgo principal:</b> Predominio absoluto de la liquidez inmediata para consumos recurrentes frente al uso estratégico de tarjetas para infraestructura.</p>
+            </div>
         </section>
 
-        <!-- Sección del Gráfico de Tableau -->
-        <section>
-            <h2>Distribución por Categoría</h2>
-            <p>A continuación se presenta el gráfico interactivo realizado en Tableau:</p>
-            
-            <div class="viz-container">
-                <!-- CÓDIGO DE TABLEAU PROPORCIONADO -->
-                <div class='tableauPlaceholder' id='viz1787789078290' style='position: relative'>
-                    <noscript>
-                        <a href='#'>
-                            <img alt='Distribución por categoría ' src='https://public.tableau.com/static/images/Li/Libro1_17877878563150/Hoja2/1_rss.png' style='border: none' />
-                        </a>
-                    </noscript>
+        <!-- SECCIÓN 2: TREEMAP DE CATEGORÍAS (Tableau) -->
+        <section class="card">
+            <h2>2. Anatomía de la Billetera: Volumen vs. Valor</h2>
+            <p class="description">Treemap jerárquico desarrollado en Tableau. El tamaño representa el impacto financiero total, mientras que la escala cromática semáforo expone el volumen de transacciones por categoría.</p>
+            <div class="visualization-container">
+                <!-- EMBED DE TABLEAU (O la imagen del Treemap validada) -->
+                <div class='tableauPlaceholder' id='viz1788833936240' style='position: relative; width: 100%; max-width: 100%;'>
+                    <noscript><a href='#'><img alt='Dashboard 1 ' src='https://public.tableau.com/static/images/Da/DatosMELI/Dashboard1/1_rss.png' style='border: none' /></a></noscript>
                     <object class='tableauViz' style='display:none;'>
                         <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
                         <param name='embed_code_version' value='3' /> 
                         <param name='site_root' value='' />
-                        <param name='name' value='Libro1_17877878563150/Hoja2' />
-                        <param name='tabs' value='no' />
+                        <param name='name' value='DatosMELI&#47;Dashboard1' />
+                        <param name='tabs' value='no' /> 
                         <param name='toolbar' value='yes' />
-                        <param name='static_image' value='https://public.tableau.com/static/images/Li/Libro1_17877878563150/Hoja2/1.png' /> 
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-US' />
+                        <param name='static_image' value='https://public.tableau.com/static/images/Da/DatosMELI/Dashboard1/1.png' /> 
+                        <param name='animate_transition' value='yes' /> 
+                        <param name='display_static_image' value='yes' /> 
+                        <param name='display_spinner' value='yes' /> 
+                        <param name='display_overlay' value='yes' /> 
+                        <param name='display_count' value='yes' /> 
+                        <param name='language' value='en-US' /> 
                         <param name='filter' value='publish=yes' />
                     </object>
-                </div>                
-                <script type='text/javascript'>                    
-                    var divElement = document.getElementById('viz1787789078290');                    
-                    var vizElement = divElement.getElementsByTagName('object')[0];                    
+                </div>
+                <script type='text/javascript'>
+                    var divElement = document.getElementById('viz1788833936240');
+                    var vizElement = divElement.getElementsByTagName('object')[0];
                     vizElement.style.width='100%';
-                    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
-                    var scriptElement = document.createElement('script');                    
-                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                    vizElement.style.height='700px';
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
                 </script>
-                <!-- FIN DEL CÓDIGO DE TABLEAU -->
             </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #555;"><b>Lectura analítica:</b> Categorías como <i>Autos</i> operan como un claro desvío de valor (menor cantidad de transacciones, alto impacto presupuestario), contrastando con los rubros de alta recurrencia en el hogar.</p>
         </section>
 
-        <!-- Pie de página -->
-        <footer>
-            <p>Trabajo Práctico entregado mediante HTML y Tableau Public.</p>
-        </footer>
+        <!-- SECCIÓN 3 Y 4: DATAWRAPPER & FLOURISH EN DOS COLUMNAS -->
+        <div class="grid-2">
+            
+            <!-- SECCIÓN 3: DATAWRAPPER (Línea de Tiempo) -->
+            <section class="card" style="border-top-color: #17a2b8;">
+                <h2>3. El Pulso del Consumo</h2>
+                <p class="description">Gráfico de líneas editorial de Datawrapper que expone la tendencia mensual de gastos, destacando mediante anotaciones analíticas el impacto de compras extraordinarias.</p>
+                <div class="visualization-container">
+                    <iframe title="El pulso de mi consumo" aria-label="Line chart" id="datawrapper-chart-GFQyP" src="https://datawrapper.dwcdn.net/GFQyP/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="438" data-external="1"></iframe>
+                    <script type="text/javascript">!(function(){function e(){window.addEventListener(`message`,function(e){if(e.data[`datawrapper-height`]!==void 0){var t=document.querySelectorAll(`iframe`);for(var n in e.data[`datawrapper-height`])for(var r=0,i;i=t[r];r++)if(i.contentWindow===e.source){var a=e.data[`datawrapper-height`][n]+`px`;i.style.height=a}}})}e();})();</script>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #555;"><b>Conclusión temporal:</b> La estacionalidad se quiebra netamente en mayo debido a la adquisición de equipamiento tecnológico multimedia.</p>
+            </section>
+
+            <!-- SECCIÓN 4: FLOURISH (Scatter Plot Financiero) -->
+            <section class="card" style="border-top-color: #ff9900;">
+                <h2>4. Estrategia de Financiación</h2>
+                <p class="description">Diagrama de dispersión interactivo en Flourish que cruza el monto total de la operación frente a las cuotas pactadas, utilizando escalas lineales optimizadas.</p>
+                <div class="visualization-container">
+                    <div class="flourish-embed flourish-scatter" data-src="visualisation/30183121" style="width:100%;"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/30183121/thumbnail" width="100%" alt="scatter visualization" /></noscript></div>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #555;"><b>Patrón crediticio:</b> Se evidencia una clara separación operativa: el dinero en cuenta se restringe al 100% de operaciones en 1 pago, reservando el financiamiento en cuotas exclusivamente para tickets elevados.</p>
+            </section>
+
+        </div>
+
     </div>
+
+    <footer>
+        <p>Trabajo Práctico de Ciencia de Datos — ITBA | Entorno de Visualización Interactiva aplicado a Datos de E-commerce.</p>
+    </footer>
 
 </body>
 </html>
